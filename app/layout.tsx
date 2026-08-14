@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://www.ccgroupllc.com";
-const siteName = "C&C Group LLC";
+const siteName = "C&CGC";
 const description =
   "C&C Group LLC delivers premium roofing and general contracting services in the DFW area — free estimates, licensed crews, and appointment booking online.";
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description,
   keywords: [
-    "C&C Group LLC",
+    "C&CGC",
     "roofing contractor DFW",
     "general contractor Dallas Fort Worth",
     "roof replacement",

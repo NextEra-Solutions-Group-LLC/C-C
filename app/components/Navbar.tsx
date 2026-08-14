@@ -27,12 +27,20 @@ const hindSiliguri = Hind_Siliguri({
     variable: "--font-hind-siliguri",
 });
 
+// Blog is now last, and points to the external blog subdomain
 const NAV_LINKS = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Gallery", href: "/gallery" },
-    { label: "Blog", href: "/blog" },
-    { label: "Counter Top", href: "/counterTop" },
+    { label: "Showcase", href: "/counterTop" },
+    { label: "Blog", href: "https://blog-candc.vercel.app", external: true },
+];
+
+// Digital supports credits shown on the left of the topbar
+const DIGITAL_SUPPORT_LINKS = [
+    { label: "EraHub.app", href: "https://erahub.app" },
+    { label: "EraKit.us", href: "https://erakit.us" },
+    { label: "EraSync.us", href: "https://erasync.us" },
 ];
 
 const WEEKDAY_LABELS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
@@ -322,25 +330,61 @@ export default function Navbar() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className={`${hindSiliguri.variable} font-[family-name:var(--font-hind-siliguri)] fixed top-0 left-0 z-50 w-full transition-all duration-300 bg-white shadow-md`}
             >
-                {/* Subnav */}
+                {/* Subnav / Topbar */}
                 <div className="border-b border-slate-100 bg-white text-slate-800 text-xs py-2 px-6 lg:px-10">
-                    <div className="mx-auto flex max-w-7xl items-center justify-between">
-                        <div className="flex items-center gap-3">
-                            <Link href="/contact" className="flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700 hover:bg-slate-200 transition-colors">
-                                <Mail className="h-3.5 w-3.5 text-blue-600" />
-                                CONTACT US
-                            </Link>
-                            <span className="text-slate-300">|</span>
-                            <a href="tel:3477663669" className="flex items-center gap-1.5 font-bold text-slate-700 hover:text-blue-600 transition-colors">
-                                <Phone className="h-3.5 w-3.5 text-blue-600" />
-                                214-ROOF-NOW
-                            </a>
+                    <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-2 md:grid-cols-3 md:gap-4">
+                        {/* LEFT: Digital supports credit */}
+                        <div className="flex flex-wrap items-center justify-center gap-1.5 whitespace-nowrap text-[11px] text-slate-500 md:justify-start">
+                            <span className="font-medium">All Digital Supports by:</span>
+                            {DIGITAL_SUPPORT_LINKS.map((item, idx) => (
+                                <span key={item.label} className="flex items-center gap-1.5">
+                                    <a
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="font-bold text-slate-700 transition-colors hover:text-blue-600"
+                                    >
+                                        {item.label}
+                                    </a>
+                                    {idx < DIGITAL_SUPPORT_LINKS.length - 1 && (
+                                        <span className="text-slate-300">|</span>
+                                    )}
+                                </span>
+                            ))}
                         </div>
-                        <div className="flex items-center gap-4">
-                            <div className="flex items-center gap-1.5 font-bold text-slate-700">
-                                <MapPin className="h-3.5 w-3.5 text-blue-600" />
-                                Allen, TX, United States, Texas
-                            </div>
+
+                        {/* CENTER: Location */}
+                        <div className="flex items-center justify-center gap-1.5 font-bold text-slate-700">
+                            <MapPin className="h-3.5 w-3.5 text-blue-600" />
+                            TX, USA
+                        </div>
+
+                        {/* RIGHT: Phone (two sizes) + Email */}
+                        <div className="flex items-center justify-center gap-4 md:justify-end">
+                            <a href="tel:2602263242" className="group flex items-center gap-2">
+                                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                                    <Phone className="h-3.5 w-3.5" strokeWidth={2.5} />
+                                </span>
+                                <span className="flex flex-col leading-none">
+                                    <span className="font-bold tracking-wide text-slate-700 transition-colors group-hover:text-blue-600">
+                                        (260) CANDC GC
+                                    </span>
+                                    <span className="mt-1 text-[9px] font-medium tracking-wide text-slate-400">
+                                        (260) 226 3242
+                                    </span>
+                                </span>
+                            </a>
+
+                            <span className="hidden h-6 w-px bg-slate-200 sm:block" />
+
+                            <a href="/contact" aria-label="Email us" className="group flex items-center gap-2">
+                                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                                    <Mail className="h-3.5 w-3.5" strokeWidth={2.5} />
+                                </span>
+                                <span className="font-medium text-slate-700 transition-colors group-hover:text-blue-600">
+                                    contact@candcgc.us
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -361,16 +405,29 @@ export default function Navbar() {
 
                     {/* Desktop nav links */}
                     <nav className="hidden items-center gap-8 lg:flex">
-                        {NAV_LINKS.map((link) => (
-                            <Link
-                                key={link.label}
-                                href={link.href}
-                                className="group relative text-[15px] font-bold tracking-wide text-slate-700 transition-colors duration-200 hover:text-blue-600"
-                            >
-                                {link.label}
-                                <span className="absolute -bottom-1.5 left-0 h-[2.5px] w-0 rounded-full bg-blue-600 transition-all duration-300 ease-out group-hover:w-full" />
-                            </Link>
-                        ))}
+                        {NAV_LINKS.map((link) =>
+                            link.external ? (
+                                <a
+                                    key={link.label}
+                                    href={link.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group relative text-[15px] font-bold tracking-wide text-slate-700 transition-colors duration-200 hover:text-blue-600"
+                                >
+                                    {link.label}
+                                    <span className="absolute -bottom-1.5 left-0 h-[2.5px] w-0 rounded-full bg-blue-600 transition-all duration-300 ease-out group-hover:w-full" />
+                                </a>
+                            ) : (
+                                <Link
+                                    key={link.label}
+                                    href={link.href}
+                                    className="group relative text-[15px] font-bold tracking-wide text-slate-700 transition-colors duration-200 hover:text-blue-600"
+                                >
+                                    {link.label}
+                                    <span className="absolute -bottom-1.5 left-0 h-[2.5px] w-0 rounded-full bg-blue-600 transition-all duration-300 ease-out group-hover:w-full" />
+                                </Link>
+                            )
+                        )}
                     </nav>
 
                     {/* Desktop CTAs */}
@@ -380,7 +437,7 @@ export default function Navbar() {
                             className="flex items-center gap-2 rounded-full border-2 border-slate-200 px-5 py-2.5 text-sm font-bold text-slate-700 transition-all hover:bg-slate-50 hover:border-slate-300 active:scale-95"
                         >
                             <User className="h-4 w-4" strokeWidth={2.5} />
-                            Request Free Estimate
+                            Request Estimate
                         </button>
                         <button
                             onClick={handleOpenBookingModal}
@@ -429,16 +486,29 @@ export default function Navbar() {
                                 className="absolute top-full left-4 right-4 mt-2 rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl lg:hidden z-50"
                             >
                                 <nav className="flex flex-col gap-4">
-                                    {NAV_LINKS.map((link) => (
-                                        <Link
-                                            key={link.label}
-                                            href={link.href}
-                                            onClick={() => setMobileOpen(false)}
-                                            className="text-base font-bold text-slate-800 transition-colors hover:text-blue-600 border-b border-slate-100 pb-2"
-                                        >
-                                            {link.label}
-                                        </Link>
-                                    ))}
+                                    {NAV_LINKS.map((link) =>
+                                        link.external ? (
+                                            <a
+                                                key={link.label}
+                                                href={link.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                onClick={() => setMobileOpen(false)}
+                                                className="text-base font-bold text-slate-800 transition-colors hover:text-blue-600 border-b border-slate-100 pb-2"
+                                            >
+                                                {link.label}
+                                            </a>
+                                        ) : (
+                                            <Link
+                                                key={link.label}
+                                                href={link.href}
+                                                onClick={() => setMobileOpen(false)}
+                                                className="text-base font-bold text-slate-800 transition-colors hover:text-blue-600 border-b border-slate-100 pb-2"
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        )
+                                    )}
                                 </nav>
                                 <div className="mt-6 flex flex-col gap-3">
                                     <button
@@ -446,7 +516,7 @@ export default function Navbar() {
                                         className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-bold text-slate-700 transition-all hover:bg-slate-100 active:scale-95"
                                     >
                                         <User className="h-4 w-4" strokeWidth={2.5} />
-                                        Request Free Estimate
+                                        Request Estimate
                                     </button>
                                     <button
                                         onClick={handleOpenBookingModal}

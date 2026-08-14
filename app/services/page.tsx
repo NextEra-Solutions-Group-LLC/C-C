@@ -35,7 +35,7 @@ const SERVICES: ServiceItem[] = [
     {
         title: "General Contracting",
         desc: "Insurance Claim Restoration to Complex Projects.",
-        img: "https://i.ibb.co/vCGb1M3F/image.png",
+        img: "https://i.ibb.co/k2RTTMzK/image.png",
         href: "#general-contracting",
     },
 ];

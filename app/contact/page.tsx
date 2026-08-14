@@ -104,7 +104,7 @@ export default function FAQAndContact() {
                                     </div>
                                     <div>
                                         <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Location</h4>
-                                        <p className="mt-0.5 text-sm font-bold text-slate-800">Allen, TX, United States, Texas</p>
+                                        <p className="mt-0.5 text-sm font-bold text-slate-800">Allen, TX, USA</p>
                                     </div>
                                 </div>
 
@@ -115,7 +115,7 @@ export default function FAQAndContact() {
                                     <div>
                                         <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Phone Number</h4>
                                         <a href="tel:3477663669" className="mt-0.5 text-sm font-bold text-slate-800 hover:text-blue-600 transition-colors">
-                                            214-ROOF-NOW (900-6362)
+                                            260-ROOF-NOW (266-3242)
                                         </a>
                                     </div>
                                 </div>

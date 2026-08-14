@@ -33,19 +33,19 @@ const TRANSFORM_ITEMS = [
     },
     {
         id: 4,
-        title: "Marble Luxe",
+        title: "Marble",
         beforeImg: "https://i.ibb.co/q3vDGww6/image.png",
         afterImg: "https://i.ibb.co/7Nd30yNQ/image.png",
     },
     {
         id: 5,
-        title: "Modern Quartz",
+        title: " Quartz",
         beforeImg: "https://i.ibb.co/4nHwySDc/image.png",
         afterImg: "https://i.ibb.co/848sh5kb/image.png",
     },
     {
         id: 6,
-        title: "Classic Slate",
+        title: "Other Natural",
         beforeImg: "https://i.ibb.co/Z6G8k6gy/image.png",
         afterImg: "https://i.ibb.co/9kLdYrcD/image.png",
     },
