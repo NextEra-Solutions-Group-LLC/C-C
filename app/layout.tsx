@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://www.ccgroupllc.com";
 const siteName = "C&CGC";
 const description =
-  "C&C Group LLC delivers premium roofing and general contracting services in the DFW area — free estimates, licensed crews, and appointment booking online.";
+  "C&C GC ";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
