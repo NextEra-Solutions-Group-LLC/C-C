@@ -18,38 +18,25 @@ type ServiceArea = {
     icon: React.ReactNode;
     title: string;
     cities: string;
-    top: string;
-    left: string;
 };
 
-// Adjusted coordinates for mobile/desktop spacing so they don't overlap
 const serviceAreas: ServiceArea[] = [
     {
         icon: <Building2 className="h-5 w-5" />,
         title: "DFW Metroplex",
         cities: "Dallas · Fort Worth · Arlington · Plano · Frisco · McKinney",
-        top: "28%",
-        left: "42%",
     },
     {
         icon: <Home className="h-5 w-5" />,
         title: "Houston Metroplex",
         cities: "Houston · Katy · Sugar Land · The Woodlands · Pasadena",
-        top: "62%",
-        left: "38%",
     },
     {
         icon: <Waves className="h-5 w-5" />,
         title: "Beaumont",
         cities: "Beaumont · Port Arthur · Nederland · Orange",
-        top: "74%",
-        left: "75%",
     },
 ];
-
-// Simplified Texas outline
-const TEXAS_PATH =
-    "M120,40 L340,40 L340,110 L400,110 L400,170 L440,190 L470,240 L455,290 L480,330 L465,380 L420,420 L370,460 L330,470 L300,510 L260,505 L235,460 L190,450 L150,420 L120,430 L95,390 L60,380 L40,340 L60,300 L45,250 L70,220 L60,180 L90,150 L80,110 L120,110 Z";
 
 export default function ServiceAreas() {
     return (
@@ -128,7 +115,7 @@ export default function ServiceAreas() {
                         </div>
                     </motion.div>
 
-                    {/* Map */}
+                    {/* Google Map Embed */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.96 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -136,51 +123,18 @@ export default function ServiceAreas() {
                         transition={{ duration: 0.7, ease: "easeOut" }}
                         className="relative flex items-center justify-center pt-4 lg:pt-0"
                     >
-                        <div className="relative aspect-square w-full max-w-lg">
-                            <svg
-                                viewBox="0 0 520 560"
-                                className="h-full w-full drop-shadow-[0_10px_30px_rgba(37,99,235,0.12)]"
-                            >
-                                <path
-                                    d={TEXAS_PATH}
-                                    fill="#EFF6FF"
-                                    stroke="#2563EB"
-                                    strokeWidth="2.5"
-                                    strokeLinejoin="round"
-                                />
-                                <path
-                                    d={TEXAS_PATH}
-                                    fill="none"
-                                    stroke="#93C5FD"
-                                    strokeWidth="0.75"
-                                    strokeDasharray="4 5"
-                                    opacity="0.6"
-                                />
-                            </svg>
-
-                            {/* Pins */}
-                            {serviceAreas.map((area) => (
-                                <div
-                                    key={area.title}
-                                    className="absolute -translate-x-1/2 -translate-y-full"
-                                    style={{ top: area.top, left: area.left }}
-                                >
-                                    <div className="flex flex-col items-center">
-                                        <span className="whitespace-nowrap rounded-lg bg-blue-600 px-2.5 py-0.5 text-[10px] sm:text-xs font-semibold text-white shadow-md shadow-blue-300">
-                                            {area.title}
-                                        </span>
-                                        <span className="mt-1 h-2.5 w-2.5 sm:h-3 sm:w-3 animate-pulse rounded-full bg-blue-600 ring-4 ring-blue-200" />
-                                    </div>
-                                </div>
-                            ))}
-
-                            {/* Coming soon marker placed precisely in the middle center */}
-                            <div className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center text-blue-600 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-xl border border-blue-100 shadow-sm">
-                                <MapPin className="h-4 w-4 mb-0.5" />
-                                <span className="text-[10px] sm:text-xs font-semibold italic text-slate-600 leading-tight">
-                                    More Locations Coming Soon
-                                </span>
-                            </div>
+                        <div className="relative aspect-square w-full max-w-lg overflow-hidden rounded-3xl border border-slate-200 shadow-[0_10px_30px_rgba(37,99,235,0.12)]">
+                            <iframe
+                                title="Texas Service Areas Google Map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7023348.17290115!2d-103.55835956947614!3d31.16886295551945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864070360b823249%3A0x16eb1c8f1808de3!2sTexas%2C%20USA!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen={false}
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="h-full w-full grayscale-[20%] contrast-[105%]"
+                            />
                         </div>
                     </motion.div>
                 </div>
