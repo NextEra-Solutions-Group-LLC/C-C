@@ -202,7 +202,7 @@ export default function ServiceAreas() {
                         </p>
                     </div>
                     <a
-                        href="tel:12605551797"
+                        href="tel:12149006362"
                         className="inline-flex shrink-0 items-center gap-3 rounded-full bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-300 transition-transform hover:-translate-y-0.5 hover:bg-blue-700"
                     >
                         <Phone className="h-4 w-4" />
