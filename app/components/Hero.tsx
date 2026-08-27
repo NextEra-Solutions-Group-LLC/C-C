@@ -52,7 +52,7 @@ export default function Hero() {
                         Transparent
                     </span>
                     <span className="leading-tight mt-1 sm:mt-2 drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
-                        Roof Pricing
+                        Pricing
                     </span>
                 </motion.h1>
             </div>
