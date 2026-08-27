@@ -18,31 +18,32 @@ type ServiceArea = {
     icon: React.ReactNode;
     title: string;
     cities: string;
-    top: string; // % from top of the map
-    left: string; // % from left of the map
+    top: string;
+    left: string;
 };
 
+// Adjusted coordinates for mobile/desktop spacing so they don't overlap
 const serviceAreas: ServiceArea[] = [
     {
         icon: <Building2 className="h-5 w-5" />,
         title: "DFW Metroplex",
         cities: "Dallas · Fort Worth · Arlington · Plano · Frisco · McKinney",
-        top: "30%",
-        left: "44%",
+        top: "28%",
+        left: "42%",
     },
     {
         icon: <Home className="h-5 w-5" />,
         title: "Houston Metroplex",
         cities: "Houston · Katy · Sugar Land · The Woodlands · Pasadena",
-        top: "66%",
-        left: "58%",
+        top: "62%",
+        left: "38%",
     },
     {
         icon: <Waves className="h-5 w-5" />,
         title: "Beaumont",
         cities: "Beaumont · Port Arthur · Nederland · Orange",
-        top: "70%",
-        left: "82%",
+        top: "74%",
+        left: "75%",
     },
 ];
 
@@ -52,7 +53,7 @@ const TEXAS_PATH =
 
 export default function ServiceAreas() {
     return (
-        <section className="relative overflow-hidden bg-white pt-24 pb-16 sm:py-28">
+        <section className="relative overflow-hidden bg-white pt-32 pb-16 sm:pt-40 sm:pb-28">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Header */}
                 <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
@@ -173,13 +174,11 @@ export default function ServiceAreas() {
                                 </div>
                             ))}
 
-                            {/* Coming soon marker */}
-                            <div className="absolute right-[4%] top-[45%] flex items-center gap-1.5 text-blue-600">
-                                <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
-                                <span className="text-[10px] sm:text-xs font-medium italic text-slate-500 leading-tight">
-                                    More Locations
-                                    <br />
-                                    Coming Soon
+                            {/* Coming soon marker placed precisely in the middle center */}
+                            <div className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center text-blue-600 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-xl border border-blue-100 shadow-sm">
+                                <MapPin className="h-4 w-4 mb-0.5" />
+                                <span className="text-[10px] sm:text-xs font-semibold italic text-slate-600 leading-tight">
+                                    More Locations Coming Soon
                                 </span>
                             </div>
                         </div>
