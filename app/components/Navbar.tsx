@@ -30,7 +30,7 @@ const hindSiliguri = Hind_Siliguri({
 // Blog is now last, and points to the external blog subdomain
 const NAV_LINKS = [
     { label: "Home", href: "/" },
-    { label: "ServiceArea", href: "/serviceArea" },
+    { label: "Service Area", href: "/serviceArea" },
     { label: "Services", href: "/services" },
     { label: "Gallery", href: "/gallery" },
     { label: "Showcase", href: "/counterTop" },

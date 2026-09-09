@@ -2,10 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Hind_Siliguri } from "next/font/google";
-import { ArrowRight } from "lucide-react";
 
 const hindSiliguri = Hind_Siliguri({
     subsets: ["latin"],
@@ -22,13 +20,12 @@ interface ServiceItem {
     href: string;
 }
 
-
 const SERVICES: ServiceItem[] = [
     {
         id: "roofing",
         title: "Roofing",
-        subtitle: "Residential, Multi-Family, Commercial, Industrial, Government",
-        desc: "Complete roofing solutions tailored for every structure type. From routine inspections to heavy-duty installations.",
+        subtitle: "Residential, Multi-Family, Commercial, Industrial, Government Inspection, Maintenance, Repair & Replacement.",
+        desc: "Complete roofing solutions tailored for every structure type. Shingle, Metal, ModBit, Tile, Solar Tile.",
         img: "https://i.ibb.co.com/6CDKjV2/image.png",
         href: "#roofing",
     },
@@ -36,7 +33,7 @@ const SERVICES: ServiceItem[] = [
         id: "commercial-roofing",
         title: "Commercial Roofing",
         subtitle: "Inspection, Maintenance, Repair & Replacement",
-        desc: "Protect your commercial investment with professional roof inspections, proactive maintenance, heavy repairs, and full system replacements.",
+        desc: "Protect your commercial investment with professional roof inspections, proactive maintenance, heavy repairs, and full system replacements. TPO, Metal, ModBit, Coating.",
         img: "https://i.ibb.co/TqFyQ4sQ/image.png",
         href: "#commercial-roofing",
     },
@@ -50,10 +47,10 @@ const SERVICES: ServiceItem[] = [
     },
     {
         id: "commercial-hvac",
-        title: "Commercial HVAC",
+        title: "Residential & Commercial HVAC",
         subtitle: "Installation, Upgrades & Maintenance",
-        desc: "Keep your commercial premises climate-controlled and energy efficient with robust commercial HVAC solutions.",
-        img: "https://i.ibb.co/DBppJyB/image.png",
+        desc: "Keep your premises climate-controlled and energy efficient with robust HVAC solutions. Call us last for an honest diagnosis and competitive price.",
+        img: "https://i.ibb.co.com/Y4W62xTk/image.png",
         href: "#commercial-hvac",
     },
     {
@@ -61,7 +58,7 @@ const SERVICES: ServiceItem[] = [
         title: "Solar System",
         subtitle: "Residential & Commercial Solutions",
         desc: "Harness clean, renewable energy with state-of-the-art solar installations designed for homes and commercial buildings.",
-        img: "https://i.ibb.co/jkkmNWzh/image.png",
+        img: "https://i.ibb.co.com/MDTHDpzD/image.png",
         href: "#solar-system",
     },
     {
@@ -105,7 +102,7 @@ export default function Services() {
                     </h2>
                 </div>
 
-                {/* Service Category Buttons (Updated Sequence based on user markings) */}
+                {/* Service Category Buttons */}
                 <div className="flex flex-wrap justify-center gap-3 mb-16">
                     {SERVICES.map((service) => {
                         const isActive = activeTab === service.id;
@@ -167,13 +164,6 @@ export default function Services() {
                                 <p className="mt-4 text-base font-medium leading-relaxed text-slate-600">
                                     {currentService.desc}
                                 </p>
-                                <Link
-                                    href={currentService.href}
-                                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#1479D9] px-6 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-[#0f66b8]"
-                                >
-                                    Learn More
-                                    <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-                                </Link>
                             </div>
                         </motion.div>
                     </AnimatePresence>
@@ -182,4 +172,3 @@ export default function Services() {
         </section>
     );
 }
-

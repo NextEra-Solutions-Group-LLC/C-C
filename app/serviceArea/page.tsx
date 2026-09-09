@@ -1,13 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
     Building2,
     Home,
-    Waves,
-    Plus,
     Phone,
-    MapPin,
     ShieldCheck,
     Award,
     HeartHandshake,
@@ -23,19 +21,24 @@ type ServiceArea = {
 const serviceAreas: ServiceArea[] = [
     {
         icon: <Building2 className="h-5 w-5" />,
-        title: "DFW Metroplex",
-        cities: "Dallas · Fort Worth · Arlington · Plano · Frisco · McKinney",
+        title: "Greater DFW Metroplex",
+        cities: "Dallas · Fort Worth · Arlington · Plano · Frisco · McKinney, and beyond",
     },
     {
         icon: <Home className="h-5 w-5" />,
-        title: "Houston Metroplex",
-        cities: "Houston · Katy · Sugar Land · The Woodlands · Pasadena",
+        title: "Greater Houston Metroplex",
+        cities: "Houston · Katy · Sugar Land · The Woodlands · Pasadena, and beyond",
     },
-    {
-        icon: <Waves className="h-5 w-5" />,
-        title: "Beaumont",
-        cities: "Beaumont · Port Arthur · Nederland · Orange",
-    },
+];
+
+const comingSoonCities = [
+    "Austin",
+    "San Antonio",
+    "Corpus Christi",
+    "Amarillo",
+    "Laredo",
+    "El Paso",
+    "Texarkana",
 ];
 
 export default function ServiceAreas() {
@@ -43,7 +46,7 @@ export default function ServiceAreas() {
         <section className="relative overflow-hidden bg-white pt-32 pb-16 sm:pt-40 sm:pb-28">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Header */}
-                <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
+                <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12 items-center">
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -64,8 +67,7 @@ export default function ServiceAreas() {
                         </h2>
 
                         <p className="mt-5 max-w-md text-base leading-relaxed text-slate-500">
-                            We're based in Texas and proudly serve homeowners and
-                            businesses across major cities and surrounding areas.
+                            We&apos;re based in Texas and proudly serve homeowners and businesses across Texas.
                         </p>
 
                         {/* Area list */}
@@ -92,30 +94,33 @@ export default function ServiceAreas() {
                                     </div>
                                 </motion.div>
                             ))}
-
-                            <motion.div
-                                initial={{ opacity: 0, x: -16 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-80px" }}
-                                transition={{ duration: 0.5, delay: serviceAreas.length * 0.08 }}
-                                className="flex items-center gap-4 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-4"
-                            >
-                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-blue-600 ring-1 ring-slate-200">
-                                    <Plus className="h-5 w-5" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-slate-900">
-                                        More Locations Coming Soon
-                                    </p>
-                                    <p className="text-sm text-slate-500">
-                                        We're expanding to serve you better
-                                    </p>
-                                </div>
-                            </motion.div>
                         </div>
+
+                        {/* Coming Soon Box */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-80px" }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-4"
+                        >
+                            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                                Coming Soon / Expanding To:
+                            </p>
+                            <div className="mt-2 flex flex-wrap gap-1.5">
+                                {comingSoonCities.map((city) => (
+                                    <span
+                                        key={city}
+                                        className="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-xs font-medium text-slate-600 border border-slate-200 shadow-2xs"
+                                    >
+                                        {city}
+                                    </span>
+                                ))}
+                            </div>
+                        </motion.div>
                     </motion.div>
 
-                    {/* Google Map Embed */}
+                    {/* Right Side Image / Texas Map Graphic */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.96 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -123,18 +128,18 @@ export default function ServiceAreas() {
                         transition={{ duration: 0.7, ease: "easeOut" }}
                         className="relative flex items-center justify-center pt-4 lg:pt-0"
                     >
-                        <div className="relative aspect-square w-full max-w-lg overflow-hidden rounded-3xl border border-slate-200 shadow-[0_10px_30px_rgba(37,99,235,0.12)]">
-                            <iframe
-                                title="Texas Service Areas Google Map"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7023348.17290115!2d-103.55835956947614!3d31.16886295551945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864070360b823249%3A0x16eb1c8f1808de3!2sTexas%2C%20USA!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0 }}
-                                allowFullScreen={false}
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                className="h-full w-full grayscale-[20%] contrast-[105%]"
-                            />
+                        <div className="relative aspect-square w-full max-w-lg overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_10px_30px_rgba(37,99,235,0.12)] flex flex-col items-center justify-center">
+
+
+                            <div className="relative w-full h-full flex items-center justify-center">
+                                <Image
+                                    src="https://i.ibb.co.com/Jwx0fxjP/image.png"
+                                    alt="Texas Service Map"
+                                    width={400}
+                                    height={400}
+                                    className="object-contain"
+                                />
+                            </div>
                         </div>
                     </motion.div>
                 </div>
@@ -152,7 +157,7 @@ export default function ServiceAreas() {
                             Not Sure If We Serve Your Area?
                         </p>
                         <p className="mt-1 text-sm text-slate-500">
-                            Give us a call. We're always expanding to serve more communities.
+                            Give us a call. We&apos;re always expanding to serve more communities.
                         </p>
                     </div>
                     <a
