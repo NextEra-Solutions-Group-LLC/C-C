@@ -82,15 +82,17 @@ export default function Services() {
             className={`${hindSiliguri.variable} font-[family-name:var(--font-hind-siliguri)] relative w-full pt-36 pb-24 overflow-hidden`}
         >
             {/* Background Image for Section */}
-            <Image
-                src="https://i.ibb.co.com/nMbdtqKM/image.png"
-                alt="Services Background"
-                fill
-                className="object-cover object-center"
-            />
-
-            {/* Light Overlay for readability */}
-            <div className="absolute inset-0 bg-white/90 backdrop-blur-sm" />
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="https://i.ibb.co.com/nMbdtqKM/image.png"
+                    alt="Services Background"
+                    fill
+                    priority
+                    className="object-cover object-center"
+                />
+                {/* Light Overlay for readability */}
+                <div className="absolute inset-0 bg-white/90 backdrop-blur-sm" />
+            </div>
 
             <div className="relative z-10 mx-auto max-w-6xl px-6">
                 <div className="mb-12 text-center">
@@ -144,6 +146,7 @@ export default function Services() {
                                             src={currentService.img}
                                             alt={currentService.title}
                                             fill
+                                            sizes="(max-width: 768px) 300px, 340px"
                                             className="object-cover"
                                         />
                                     </div>

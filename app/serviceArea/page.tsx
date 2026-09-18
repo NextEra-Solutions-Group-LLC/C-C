@@ -133,7 +133,7 @@ export default function ServiceAreas() {
 
                             <div className="relative w-full h-full flex items-center justify-center">
                                 <Image
-                                    src="https://i.ibb.co.com/Jwx0fxjP/image.png"
+                                    src="/map.png"
                                     alt="Texas Service Map"
                                     width={400}
                                     height={400}
