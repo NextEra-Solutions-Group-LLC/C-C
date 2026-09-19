@@ -41,7 +41,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
     );
 }
 
-const WHATSAPP_NUMBER = "12602263242"; // TODO: confirm intl format
+const WHATSAPP_NUMBER = "12149006362"; // TODO: confirm intl format
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 // Blog is now last, and points to the external blog subdomain
@@ -380,7 +380,7 @@ export default function Navbar() {
 
                         {/* RIGHT: Phone (two sizes) + Email */}
                         <div className="flex items-center justify-center gap-4 md:justify-end">
-                            <a href="tel:2602263242" className="group flex items-center gap-2">
+                            <a href="tel:2149006362" className="group flex items-center gap-2">
                                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#079DD8]/10 text-[#079DD8] transition-colors group-hover:bg-[#079DD8] group-hover:text-white">
                                     <Phone className="h-3.5 w-3.5" strokeWidth={2.5} />
                                 </span>
@@ -389,7 +389,7 @@ export default function Navbar() {
                                         (260) CANDC GC
                                     </span>
                                     <span className="mt-1 text-[9px] font-medium tracking-wide text-slate-400">
-                                        (260) 226 3242
+                                        (214) 900-6362
                                     </span>
                                 </span>
                             </a>
@@ -408,61 +408,65 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center shrink-0">
-                        <div className="relative h-14 w-44 sm:w-52 md:w-60 overflow-hidden">
-                            <Image
-                                src="/image.png"
-                                alt="C&C GC Construction Logo"
-                                fill
-                                className="object-contain object-left drop-shadow-sm"
-                                priority
-                            />
-                        </div>
-                    </Link>
+                <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-4 lg:px-8">
 
-                    {/* Desktop nav links */}
-                    <nav className="hidden items-center gap-8 lg:flex">
-                        {NAV_LINKS.map((link) =>
-                            link.external ? (
-                                <a
-                                    key={link.label}
-                                    href={link.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group relative text-[15px] font-bold tracking-wide text-slate-700 transition-colors duration-200 hover:text-[#079DD8]"
-                                >
-                                    {link.label}
-                                    <span className="absolute -bottom-1.5 left-0 h-[2.5px] w-0 rounded-full bg-[#079DD8] transition-all duration-300 ease-out group-hover:w-full" />
-                                </a>
-                            ) : (
-                                <Link
-                                    key={link.label}
-                                    href={link.href}
-                                    className="group relative text-[15px] font-bold tracking-wide text-slate-700 transition-colors duration-200 hover:text-[#079DD8]"
-                                >
-                                    {link.label}
-                                    <span className="absolute -bottom-1.5 left-0 h-[2.5px] w-0 rounded-full bg-[#079DD8] transition-all duration-300 ease-out group-hover:w-full" />
-                                </Link>
-                            )
-                        )}
-                    </nav>
+                    {/* লোগো এবং নেভলিংক অংশ */}
+                    <div className="flex items-center gap-4 lg:gap-6 min-w-0">
+                        {/* Logo */}
+                        <Link href="/" className="flex items-center shrink-0">
+                            <div className="relative h-12 w-36 sm:h-14 sm:w-40 md:w-48 overflow-hidden">
+                                <Image
+                                    src="/image.png"
+                                    alt="C&C GC Construction Logo"
+                                    fill
+                                    className="object-contain object-left drop-shadow-sm"
+                                    priority
+                                />
+                            </div>
+                        </Link>
+
+                        {/* Desktop nav links */}
+                        <nav className="hidden items-center gap-3 lg:flex shrink-0">
+                            {NAV_LINKS.map((link) =>
+                                link.external ? (
+                                    <a
+                                        key={link.label}
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group relative text-[13px] lg:text-[14px] font-bold tracking-wide text-slate-700 transition-colors duration-200 hover:text-[#079DD8]"
+                                    >
+                                        {link.label}
+                                        <span className="absolute -bottom-1.5 left-0 h-[2.5px] w-0 rounded-full bg-[#079DD8] transition-all duration-300 ease-out group-hover:w-full" />
+                                    </a>
+                                ) : (
+                                    <Link
+                                        key={link.label}
+                                        href={link.href}
+                                        className="group relative text-[13px] lg:text-[14px] font-bold tracking-wide text-slate-700 transition-colors duration-200 hover:text-[#079DD8]"
+                                    >
+                                        {link.label}
+                                        <span className="absolute -bottom-1.5 left-0 h-[2.5px] w-0 rounded-full bg-[#079DD8] transition-all duration-300 ease-out group-hover:w-full" />
+                                    </Link>
+                                )
+                            )}
+                        </nav>
+                    </div>
 
                     {/* Desktop CTAs */}
-                    <div className="hidden items-center gap-3 lg:flex">
+                    <div className="hidden items-center gap-2 lg:flex shrink-0">
                         <button
                             onClick={handleOpenEstimateModal}
-                            className="flex items-center gap-2 rounded-full border-2 border-slate-200 px-5 py-2.5 text-sm font-bold text-slate-700 transition-all hover:bg-slate-50 hover:border-slate-300 active:scale-95"
+                            className="flex items-center gap-1.5 rounded-full border-2 border-slate-200 px-3.5 py-2 text-xs font-bold text-slate-700 transition-all hover:bg-slate-50 hover:border-slate-300 active:scale-95"
                         >
-                            <User className="h-4 w-4" strokeWidth={2.5} />
+                            <User className="h-3.5 w-3.5" strokeWidth={2.5} />
                             Request Estimate
                         </button>
                         <button
                             onClick={handleOpenBookingModal}
-                            className="flex items-center gap-2 rounded-full bg-[#079DD8] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-[#079DD8]/20 transition-all hover:bg-[#0688c2] active:scale-95"
+                            className="flex items-center gap-1.5 rounded-full bg-[#079DD8] px-3.5 py-2 text-xs font-bold text-white shadow-lg shadow-[#079DD8]/20 transition-all hover:bg-[#0688c2] active:scale-95"
                         >
-                            <Calendar className="h-4 w-4" strokeWidth={2.5} />
+                            <Calendar className="h-3.5 w-3.5" strokeWidth={2.5} />
                             Book an Appointment
                         </button>
 
@@ -470,30 +474,30 @@ export default function Navbar() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Chat on WhatsApp"
-                            className="flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1fbd5a] active:scale-95"
+                            className="flex items-center gap-1.5 rounded-full bg-[#25D366] px-3.5 py-2 text-xs font-bold text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1fbd5a] active:scale-95"
                         >
-                            <WhatsAppIcon className="h-4 w-4" />
+                            <WhatsAppIcon className="h-3.5 w-3.5" />
                             WhatsApp
                         </a>
-                    </div >
+                    </div>
 
                     {/* Mobile Hamburger Toggle Button */}
                     <button
                         onClick={() => setMobileOpen((v) => !v)}
-                        className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 border border-slate-200 text-slate-700 lg:hidden shadow-sm transition-all active:scale-95"
+                        className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 border border-slate-200 text-slate-700 lg:hidden shadow-sm transition-all active:scale-95"
                         aria-label="Toggle menu"
                     >
                         {mobileOpen ? (
-                            <X className="h-6 w-6 text-slate-700" />
+                            <X className="h-5 w-5 text-slate-700" />
                         ) : (
-                            <div className="flex flex-col justify-between w-5 h-4">
+                            <div className="flex flex-col justify-between w-4 h-3.5">
                                 <span className="block h-0.5 w-full bg-slate-700 rounded-full"></span>
                                 <span className="block h-0.5 w-full bg-slate-700 rounded-full"></span>
                                 <span className="block h-0.5 w-full bg-slate-700 rounded-full"></span>
                             </div>
                         )}
                     </button>
-                </div >
+                </div>
 
                 {/* Mobile Glass Overlay Menu */}
                 <AnimatePresence>
