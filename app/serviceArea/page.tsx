@@ -53,7 +53,10 @@ export default function ServiceAreas() {
                         viewport={{ once: true, margin: "-80px" }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                        <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-600 ring-1 ring-inset ring-blue-100">
+                        <span
+                            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest ring-1 ring-inset"
+                            style={{ backgroundColor: "#079DD815", color: "#079DD8", "--tw-ring-color": "#079DD830" } as React.CSSProperties}
+                        >
                             Service Areas
                         </span>
 
@@ -61,7 +64,7 @@ export default function ServiceAreas() {
                             Proudly Serving
                             <br />
                             Across{" "}
-                            <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">
+                            <span style={{ color: "#079DD8" }}>
                                 Texas
                             </span>
                         </h2>
@@ -79,9 +82,13 @@ export default function ServiceAreas() {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, margin: "-80px" }}
                                     transition={{ duration: 0.5, delay: i * 0.08 }}
-                                    className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md"
+                                    className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                                    style={{ "--tw-hover-border-color": "#079DD840" } as React.CSSProperties}
                                 >
-                                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-sm shadow-blue-200">
+                                    <div
+                                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white shadow-sm"
+                                        style={{ backgroundColor: "#079DD8", boxShadow: "0 1px 2px rgba(7, 157, 216, 0.2)" }}
+                                    >
                                         {area.icon}
                                     </div>
                                     <div className="min-w-0">
@@ -128,9 +135,10 @@ export default function ServiceAreas() {
                         transition={{ duration: 0.7, ease: "easeOut" }}
                         className="relative flex items-center justify-center pt-4 lg:pt-0"
                     >
-                        <div className="relative aspect-square w-full max-w-lg overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_10px_30px_rgba(37,99,235,0.12)] flex flex-col items-center justify-center">
-
-
+                        <div
+                            className="relative aspect-square w-full max-w-lg overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 flex flex-col items-center justify-center"
+                            style={{ boxShadow: "0 10px 30px rgba(7, 157, 216, 0.12)" }}
+                        >
                             <div className="relative w-full h-full flex items-center justify-center">
                                 <Image
                                     src="/mapp.png"
@@ -150,7 +158,8 @@ export default function ServiceAreas() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.6 }}
-                    className="mt-12 sm:mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl border border-blue-100 bg-blue-50 p-6 sm:flex-row sm:p-10"
+                    className="mt-12 sm:mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl border p-6 sm:flex-row sm:p-10"
+                    style={{ backgroundColor: "#079DD80D", borderColor: "#079DD830" }}
                 >
                     <div>
                         <p className="text-base sm:text-lg font-semibold text-slate-900">
@@ -162,7 +171,8 @@ export default function ServiceAreas() {
                     </div>
                     <a
                         href="tel:12149006362"
-                        className="inline-flex shrink-0 items-center gap-3 rounded-full bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-300 transition-transform hover:-translate-y-0.5 hover:bg-blue-700"
+                        className="inline-flex shrink-0 items-center gap-3 rounded-full px-6 py-3 font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "#079DD8", boxShadow: "0 10px 15px -3px rgba(7, 157, 216, 0.3)" }}
                     >
                         <Phone className="h-4 w-4" />
                         (260) CANDC GC
@@ -172,19 +182,19 @@ export default function ServiceAreas() {
                 {/* Trust badges */}
                 <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-xs sm:text-sm font-medium text-slate-500">
                     <span className="flex items-center gap-2">
-                        <ShieldCheck className="h-4 w-4 text-blue-600" />
+                        <ShieldCheck className="h-4 w-4" style={{ color: "#079DD8" }} />
                         Licensed &amp; Insured
                     </span>
                     <span className="flex items-center gap-2">
-                        <Award className="h-4 w-4 text-blue-600" />
+                        <Award className="h-4 w-4" style={{ color: "#079DD8" }} />
                         Quality Workmanship
                     </span>
                     <span className="flex items-center gap-2">
-                        <HeartHandshake className="h-4 w-4 text-blue-600" />
+                        <HeartHandshake className="h-4 w-4" style={{ color: "#079DD8" }} />
                         Honest &amp; Transparent
                     </span>
                     <span className="flex items-center gap-2">
-                        <Star className="h-4 w-4 text-blue-600" />
+                        <Star className="h-4 w-4" style={{ color: "#079DD8" }} />
                         100% Satisfaction
                     </span>
                 </div>

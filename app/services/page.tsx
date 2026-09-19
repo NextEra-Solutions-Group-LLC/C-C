@@ -96,7 +96,7 @@ export default function Services() {
 
             <div className="relative z-10 mx-auto max-w-6xl px-6">
                 <div className="mb-12 text-center">
-                    <p className="text-sm font-bold uppercase tracking-[3px] text-[#1479D9]">
+                    <p className="text-sm font-bold uppercase tracking-[3px]" style={{ color: "#079DD8" }}>
                         What We Do
                     </p>
                     <h2 className="mt-3 text-3xl font-extrabold text-slate-900 md:text-4xl">
@@ -113,9 +113,14 @@ export default function Services() {
                                 key={service.id}
                                 onClick={() => setActiveTab(service.id)}
                                 className={`rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 shadow-sm ${isActive
-                                    ? "bg-[#1479D9] text-white shadow-md shadow-[#1479D9]/30 scale-105"
+                                    ? "text-white scale-105"
                                     : "bg-white/80 text-slate-700 hover:bg-slate-100 border border-slate-200"
                                     }`}
+                                style={
+                                    isActive
+                                        ? { backgroundColor: "#079DD8", boxShadow: "0 4px 14px rgba(7, 157, 216, 0.3)" }
+                                        : {}
+                                }
                             >
                                 {service.title}
                             </button>
@@ -137,7 +142,10 @@ export default function Services() {
                             {/* Blob Image */}
                             <div className="relative w-full max-w-[300px] md:max-w-[340px] shrink-0">
                                 <div className="relative aspect-square w-full">
-                                    <div className="absolute inset-4 rounded-[45%_55%_65%_35%/45%_35%_65%_55%] bg-gradient-to-br from-[#1479D9]/10 to-[#6D5BD0]/10" />
+                                    <div
+                                        className="absolute inset-4 rounded-[45%_55%_65%_35%/45%_35%_65%_55%]"
+                                        style={{ background: "linear-gradient(to bottom right, rgba(7, 157, 216, 0.1), rgba(109, 91, 208, 0.1))" }}
+                                    />
                                     <div
                                         className="relative h-full w-full overflow-hidden shadow-xl shadow-slate-200"
                                         style={{ borderRadius: "45% 55% 65% 35% / 45% 35% 65% 55%" }}
@@ -155,13 +163,13 @@ export default function Services() {
 
                             {/* Text Details */}
                             <div className="flex flex-1 flex-col items-start text-left">
-                                <span className="text-xs font-bold uppercase tracking-widest text-[#1479D9]">
+                                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#079DD8" }}>
                                     Featured Service
                                 </span>
                                 <h3 className="mt-2 text-2xl font-extrabold text-slate-900 md:text-3xl">
                                     {currentService.title}
                                 </h3>
-                                <p className="mt-1 text-sm font-semibold text-[#1479D9]">
+                                <p className="mt-1 text-sm font-semibold" style={{ color: "#079DD8" }}>
                                     {currentService.subtitle}
                                 </p>
                                 <p className="mt-4 text-base font-medium leading-relaxed text-slate-600">

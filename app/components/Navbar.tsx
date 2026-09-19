@@ -442,7 +442,7 @@ export default function Navbar() {
                         </button>
                         <button
                             onClick={handleOpenBookingModal}
-                            className="flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-500 active:scale-95"
+                            className="flex items-center gap-2 rounded-full bg-[#079DD8] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-500 active:scale-95"
                         >
                             <Calendar className="h-4 w-4" strokeWidth={2.5} />
                             Book an Appointment
